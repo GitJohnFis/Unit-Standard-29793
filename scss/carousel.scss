@@ -1,0 +1,136 @@
+$white: #fff;
+$carousel-control-color:             $white;
+$carousel-control-width:             15%;
+$carousel-control-opacity:           .5;
+$carousel-control-hover-opacity:     .9;
+$carousel-control-transition:        opacity .15s ease;
+$carousel-control-icon-filter:       null;
+
+$carousel-indicator-width:           30px;
+$carousel-indicator-height:          3px;
+$carousel-indicator-hit-area-height: 10px;
+$carousel-indicator-spacer:          3px;
+$carousel-indicator-opacity:         .5;
+$carousel-indicator-active-bg:       $white;
+$carousel-indicator-active-opacity:  1;
+$carousel-indicator-transition:      opacity .6s ease;
+
+$carousel-caption-width:             70%;
+$carousel-caption-color:             $white;
+$carousel-caption-padding-y:         1.25rem;
+$carousel-caption-spacer:            1.25rem;
+
+$carousel-control-icon-width:        2rem;
+
+$carousel-control-prev-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$carousel-control-color}'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0'/></svg>");
+$carousel-control-next-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$carousel-control-color}'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708'/></svg>");
+
+$carousel-transition-duration:       .6s;
+$carousel-transition:                transform $carousel-transition-duration ease-in-out;
+
+// Button colors in homepage nav
+$primary-color: #007bff; // Bootstrap blue for btn 
+$secondary-color: #f8f9fa; // Light grey bkgr for contrast 
+
+/* Spash/Home page section for carousel section*/
+.splash-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 40px auto;
+    padding: 40px 20px;
+    width: 90%;
+    max-width: 1200px;
+    background-color: $background-color;
+    border-radius: 10px;
+}
+
+.splash-section .container {
+    width: 100%;
+}
+
+.splash-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: $primary-color;
+}
+
+.splash-section .lead {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.splash-logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.splash-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.splash-links .btn {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+}
+/* Apply custom styles to Bootstrap carousel */
+.carousel {
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: $carousel-control-width;
+    opacity: $carousel-control-opacity;
+    transition: $carousel-control-transition;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: $carousel-control-hover-opacity;
+}
+
+.carousel-control-prev-icon {
+    background-image: $carousel-control-prev-icon-bg;
+    width: $carousel-control-icon-width;
+    height: $carousel-control-icon-width;
+}
+
+.carousel-control-next-icon {
+    background-image: $carousel-control-next-icon-bg;
+    width: $carousel-control-icon-width;
+    height: $carousel-control-icon-width;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: $carousel-indicator-width;
+    height: $carousel-indicator-height;
+    margin: 0 $carousel-indicator-spacer;
+    opacity: $carousel-indicator-opacity;
+    transition: $carousel-indicator-transition;
+}
+
+.carousel-indicators .active {
+    background-color: $carousel-indicator-active-bg;
+    opacity: $carousel-indicator-active-opacity;
+}
+
+.carousel-caption {
+    width: $carousel-caption-width;
+    color: $carousel-caption-color;
+    padding-top: $carousel-caption-padding-y;
+    padding-bottom: $carousel-caption-padding-y;
+    margin-bottom: $carousel-caption-spacer;
+}
+
+.carousel-item {
+    transition: $carousel-transition;
+}

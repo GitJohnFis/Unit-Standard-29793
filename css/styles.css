@@ -1,0 +1,46 @@
+/* Center section content */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+section h1, section h2, section p {
+    text-align: center;
+    width: 100%;
+}
+
+section img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Basic carousel styling (optional, complements Bootstrap) */
+.carousel {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Center footer content */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto;
+    padding: 10px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+footer p {
+    text-align: center;
+    width: 100%;
+}

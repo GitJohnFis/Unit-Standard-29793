@@ -1,19 +1,28 @@
 const fs = require('fs');
-const path = require('path');
+const Path = require('path');
 const { JSDOM } = require('jsdom');
 
 describe('People Potential Website - HTML Validator', () => {
   test('Validates HTML has properly opened and closed tags', () => {
-    // Read the HTML file from src/app/index.html
-    const html = fs.readFileSync(path.resolve(__dirname, '../src/app/app.html'), 'utf-8');
-    
+    const htmlPath = Path.resolve(__dirname, '../src/app/index.html');
+    console.log(`Reading HTML file from: ${htmlPath}`);
+
+    // Verify file exists
+    if (!fs.existsSync(htmlPath)) {
+      throw new Error(`HTML file not found at: ${htmlPath}`);
+    }
+
+    // Read HTML file
+    const html = fs.readFileSync(htmlPath, 'utf-8');
+    console.log(`HTML content length: ${html.length} characters`);
+
     // Parse HTML with JSDOM
     let document;
     try {
       const dom = new JSDOM(html);
       document = dom.window.document;
     } catch (error) {
-      throw new Error('HTML parsing failed due to invalid structure: ' + error.message);
+      throw new Error(`HTML parsing failed: ${error.message}`);
     }
 
     // Check core HTML structure
@@ -28,6 +37,7 @@ describe('People Potential Website - HTML Validator', () => {
 
     // Verify all elements have valid tag names
     const allElements = document.querySelectorAll('*');
+    console.log(`Found ${allElements.length} HTML elements`);
     expect(allElements.length).toBeGreaterThan(0); // Ensure elements exist
     allElements.forEach((element) => {
       expect(element.tagName).toBeTruthy(); // Valid tag name

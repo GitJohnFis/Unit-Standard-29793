@@ -5,7 +5,7 @@ const { JSDOM } = require('jsdom');
 describe('People Potential Website - HTML Validator', () => {
   test('Validates HTML has properly opened and closed tags', () => {
     // Read the HTML file from src/app/index.html
-    const html = fs.readFileSync(path.resolve(__dirname, '../src/app/index.html'), 'utf-8');
+    const html = fs.readFileSync(path.resolve(__dirname, '../src/app/app.html'), 'utf-8');
     
     // Parse HTML with JSDOM
     let document;

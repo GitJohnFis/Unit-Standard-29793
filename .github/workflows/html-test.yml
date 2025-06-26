@@ -16,20 +16,65 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      # Debug: List files to verify checkout
+          submodules: false # Set to true if keeping assets submodule
+
+      # Debug: Git configuration and submodule status
+      - name: Debug Git status
+        run: |
+          echo "Git version:"
+          git --version
+          echo "Git config:"
+          git config --list
+          echo "Submodule status:"
+          git submodule status || echo "No submodules or error in submodule config"
+          echo ".gitmodules contents:"
+          cat .gitmodules || echo "No .gitmodules file found"
+
+      # Debug: List repository files
       - name: List repository files
-        run: ls -R
+        run: |
+          echo "Repository file tree:"
+          ls -R
 
       # Set up Node.js environment
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
+
+      # Debug: Node and npm versions
+      - name: Debug Node and npm versions
+        run: |
+          echo "Node version:"
+          node --version
+          echo "npm version:"
+          npm --version
+          echo "npm config:"
+          npm config list
 
       # Install dependencies
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      # Debug: Verify dependencies
+      - name: Check dependencies
+        run: |
+          echo "Installed dependencies:"
+          npm list jest jest-environment-jsdom || echo "Dependency check failed"
+          echo "Checking module directories:"
+          ls -l node_modules/jest node_modules/jest-environment-jsdom || echo "Modules not found"
+
+      # Debug: Verify test and HTML files
+      - name: Check test and HTML files
+        run: |
+          echo "Test file contents:"
+          cat tests/hawaiianHeatHtml.test.js || echo "Test file missing"
+          echo "HTML file contents:"
+          cat src/app/index.html || echo "HTML file missing"
+          echo "Jest config contents:"
+          cat jest.config.js || echo "Jest config missing"
 
       # Run the HTML validation test
       - name: Run HTML validator test
-        run: npm test
+        run: npm test -- --verbose

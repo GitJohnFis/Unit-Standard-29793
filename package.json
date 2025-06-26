@@ -1,4 +1,6 @@
 {
+  "name": "unit-standard-29793",
+  "version": "1.0.0",
   "scripts": {
     "test": "jest"
   },

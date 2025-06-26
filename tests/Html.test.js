@@ -4,7 +4,7 @@ const { JSDOM } = require('jsdom');
 
 describe('People Potential Website - HTML Validator', () => {
   test('Validates HTML has properly opened and closed tags', () => {
-    const htmlPath = Path.resolve(__dirname, '../src/app/index.html');
+    const htmlPath = Path.resolve(__dirname, '../src/app/app.html');
     console.log(`Reading HTML file from: ${htmlPath}`);
 
     // Verify file exists

@@ -1,0 +1,35 @@
+name: Simple HTML Validator
+
+on:
+  push:
+    paths:
+      - 'src/app/index.html'
+  pull_request:
+    paths:
+      - 'src/app/index.html'
+
+jobs:
+  html-basic-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check that src/app/index.html exists and has main HTML tags
+        run: |
+          set -e
+          echo "Checking for src/app/index.html..."
+          if [ ! -f src/app/index.html ]; then
+            echo "src/app/index.html not found!"
+            exit 1
+          fi
+          echo "File found. Checking for <html> tag..."
+          grep -qi "<html" src/app/index.html || { echo "<html> tag missing"; exit 1; }
+          echo "<html> tag found."
+          echo "Checking for <head> tag..."
+          grep -qi "<head" src/app/index.html || { echo "<head> tag missing"; exit 1; }
+          echo "<head> tag found."
+          echo "Checking for <body> tag..."
+          grep -qi "<body" src/app/index.html || { echo "<body> tag missing"; exit 1; }
+          echo "<body> tag found."
+          echo "All required tags are present."

@@ -4,6 +4,11 @@ const { JSDOM } = require('jsdom');
 
 describe('People Potential Website - HTML Validator', () => {
   test('Validates HTML has properly opened and closed tags', () => {
+<<<<<<< HEAD
+    // Read the HTML file from src/app/index.html
+    const html = fs.readFileSync(Path.resolve(__dirname, '../src/app/index.html'), 'utf-8');
+    
+
     const htmlPath = Path.resolve(__dirname, '../src/app/app.html');
     console.log(`Reading HTML file from: ${htmlPath}`);
 
@@ -16,6 +21,7 @@ describe('People Potential Website - HTML Validator', () => {
     const html = fs.readFileSync(htmlPath, 'utf-8');
     console.log(`HTML content length: ${html.length} characters`);
 
+>>>>>>> 51535c134cdfc307188d76563e2e46410eafe494
     // Parse HTML with JSDOM
     let document;
     try {

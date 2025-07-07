@@ -144,7 +144,7 @@ To contribute, please:
 
 Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for more details.
 
-## License
+## Licensed by MIT
 
 This project is licensed under the [MIT License](LICENSE).
 
